@@ -1,2 +1,2 @@
 # web-assessment
-This is the page I've created for the webs assessment.
+This is my capstone project for the Colmar Academy.
