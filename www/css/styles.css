@@ -1,0 +1,244 @@
+/* Setting the base and body font properties and colour */
+html,
+body {
+    font-family: 'Open Sans';
+    font-size: 16px;
+    color: #464646;
+}
+
+a {
+    text-decoration: none;
+    color: #5596e3;
+}
+
+a:hover {
+    color: #ffa500;
+}
+/* Set headers to Robot font-face */
+h1,
+h2,
+h3,
+h4 {
+    font-family: "Roboto";
+}
+/* Defining properties and values of header */
+h1 {
+    font-size: 64px;
+    font-weight: 900;
+}
+
+h2 {
+    font-size: 48px;
+    font-weight: 400;
+}
+
+h3 {
+    font-size: 32px;
+    font-weight: 400;
+}
+
+h4 {
+    font-size: 24px;
+}
+/* Setting image to fill */
+img {
+    width: 100%;
+}
+/* Set style of "Colmar" in the header */
+.colmar-text {
+    font-family: 'Lato', Helvetica, serif;
+    font-weight: 700;
+    font-size: 24px;
+}
+/* Set style of "Academy" in the header */
+.academy-text {
+    font-family: 'Lato', Helvetica, serif;
+    font-weight: 300;
+    font-size: 24px;
+}
+/* Setting header style */
+header {
+    display: flex;
+    position: sticky;
+    top: 0;
+    background-color: #fff;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 64px;
+}
+/* Setting logo */
+.logo {
+    display: flex;
+    flex-direction: row;
+    height: 32px;
+    margin-left: 24px;
+}
+/* Defining width and height of logo image */
+.logo img {
+    width: auto;
+    height: 32px;
+}
+/* Setting navigation menu that's used by header and footer */
+.nav-menu {
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: row;
+    margin-right: 24px;
+}
+
+.nav-menu li {
+    display: flex;
+    margin-right: 16px;
+}
+
+.nav-menu a {
+    color: #464646;
+}
+/* When hovering over links in the navigation menu, the text will be underlined */
+.nav-menu a:hover {
+    text-decoration: underline;
+}
+/* Setting top and bottom padding of the specified sections/grid */
+#banner,#learning, #thesis-exhibit, #information .left{
+    padding-top: 32px;
+    padding-bottom: 32px;
+}
+/* Items within banner layer to align vertically, or along the column axis. */
+#banner {
+    align-items: center;
+}
+/* banner and information grid sets to be split into 2 columns (60% and 40%) */
+#banner,
+#information {
+    display: grid;
+    grid-template-columns: 6fr 4fr;
+    column-gap: 24px;
+    padding-left: 24px;
+}
+/* Setting banner and learning layers' background colour. */
+#banner,
+#learning {
+    background-color: #d8d8d8;
+}
+/* Setting a visible left border in information right div */
+#information .right {
+    border-left: #d8d8d8 1px solid;
+    padding-top: 16px;
+}
+/* Setting style and properties of button in banner layer */
+button {
+    background-color: #4a4a4a;
+    color: #fff;
+    border: none;
+    font-family: "Open Sans";
+    font-size: 20px;
+    padding: 8px 0 8px 0;
+    width: 90%;
+}
+/* Focusing or hovering over the button will change the button's background to #ffa500 */
+button:hover,
+button:focus {
+    background-color: #ffa500;
+}
+/* Setting style of name of person that was quoted */
+.quote {
+    font-size: 14px;
+    font-style: italic;
+    font-weight: 300;
+}
+/* Setting left and right padding of learning section */
+#learning {
+    padding-left: 72px;
+    padding-right: 72px;
+}
+/* Setting learning grid container's content to have a left padding of 16px */
+#learning h4,
+#learning p {
+    padding-left: 16px;
+}
+/* Setting style and overwriting margin of h2 which is a block element to 0, as we've defined the padding of grid containers already */
+.learning-title {
+    text-align: center;
+    padding-bottom: 32px;
+    margin: 0;
+}
+/* Configuring the grid containers and components to be used in #information .left and #thesis-exhibit .left  */
+.side-tiles {
+    display: grid;
+    grid-template-columns: 35fr 65fr;
+    /* Used grid-auto-flow: row to specify how additional items get flowed into the grid. */
+    grid-auto-flow: row;
+    column-gap: 16px;
+    padding-top: 16px;
+    padding-left: 16px;
+    padding-bottom: 16px;
+    align-items: center;
+    border-bottom: #d8d8d8 1px solid;
+}
+
+.side-tiles:hover {
+    background-color: #d8d8d8;
+}
+
+.tile-title {
+    font-weight: bold;
+    font-size: 24px;
+}
+/* Configuring the container to list the courses, with 3 columns of equal width created */
+.course-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 32px;
+}
+/* Setting the background of which course to white. Not visible in the course image as the image is set to fit */
+.course-card {
+    background-color: #fff;
+}
+/* Changing "courses" in the course cards to be uppercase with font-weight of 200. */
+.course-tag {
+    text-transform: uppercase;
+    font-weight: 200;
+}
+/* Setting the thesis-exhibit grid container, and Using grid-template-areas property to name sections to use as values in the grid-row-start, grid-row-end, grid-column-start,grid-column-end, and grid-area properties. */
+#thesis-exhibit {
+    display: grid;
+    /* row height to be auto, with 2 columns (60% and 40%) created */
+    grid-template: auto auto / 6fr 4fr;
+    grid-template-areas: "h2 h2" "left right";
+    column-gap: 24px;
+    padding-left: 24px;
+}
+/* Defining <h2></h2> as grid area "h2" to be used in grid-template-areas */
+#thesis-exhibit h2 {
+    grid-area: h2;
+}
+/* Defining .left container as grid area "left" to be used in grid-template-areas */
+#thesis-exhibit .left {
+    grid-area: left;
+}
+/* Defining .right container as grid area "right" to be used in grid-template-areas */
+#thesis-exhibit .right {
+    grid-area: right;
+}
+/* Video in thesis exhibit to autofit */
+.thesis-container video {
+    width: auto;
+}
+/* Footer container */
+footer {
+    display: flex;
+    background-color: #fff;
+    justify-content: space-between;
+    height: 80px;
+    border-top: #e7e9e9 solid 1px;
+    padding-left: 24px;
+}
+.statement {
+    padding-top: 16px;
+}
+/* Playing around - Setting the right grid to have a right padding of 20%, to "beautify" it   */
+  .right.side-ban {
+    padding-right: 20%;
+}
+/* CSS rule sets for mobile view */
