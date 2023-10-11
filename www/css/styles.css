@@ -63,7 +63,7 @@ img {
     width: 100%;
 }
 
-/* Header */
+/* HEADER */
 
 /* Set header style */
 header {
@@ -130,9 +130,9 @@ header {
     text-decoration: underline;
 }
 
-/* Main - Shared CSS rules */
+/* MAIN - SHARED CSS RULES */
 
-/* Set top and bottom padding of the specified sections/grid */
+/* Set top and bottom padding of the sections/grids */
 #banner,
 #learning,
 #thesis-exhibit,
@@ -157,15 +157,44 @@ header {
     background-color: #d8d8d8;
 }
 
-/* Content within banner layer/section to align vertically, or along the column axis. */
-#banner {
-    align-items: center;
+/* Resetting padding-top to 0 as each container had already been assigned with top padding of 32px */
+#learning h2,
+#thesis-exhibit h2 {
+    padding-top: 0;
 }
 
-/* Set a visible left border and a padding-top in information section's right div */
-#information .right {
-    border-left: #d8d8d8 1px solid;
+/* Configuring the grid containers and components to be used in #information .left and #thesis-exhibit .left  */
+.side-tiles {
+    display: grid;
+    grid-template-columns: 35fr 65fr;
+    grid-auto-flow: row;
+    column-gap: 16px;
     padding-top: 16px;
+    padding-left: 16px;
+    padding-bottom: 16px;
+    align-items: center;
+    border-bottom: #d8d8d8 1px solid;
+}
+
+.side-tiles:hover {
+    background-color: #d8d8d8;
+}
+
+.tile-title {
+    font-weight: bold;
+    font-size: 24px;
+}
+
+.details p {
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+
+/* MAIN - BANNER SECTION */
+
+/* Align vertically (along the column axis) the content within banner layer/section */
+#banner {
+    align-items: center;
 }
 
 /* Set style and properties of button in banner section */
@@ -195,16 +224,16 @@ button:focus {
     padding-top: 24px;
 }
 
+/* Set a visible left border and a padding-top in information section's right div */
+#information .right {
+    border-left: #d8d8d8 1px solid;
+    padding-top: 16px;
+}
+
 /* Setting left and right padding of learning section */
 #learning {
     padding-left: 72px;
     padding-right: 72px;
-}
-
-/* Resetting this to 0 as each container already assigned with top padding of 32px */
-#learning h2,
-#thesis-exhibit h2 {
-    padding-top: 0;
 }
 
 /* Setting learning grid container's content to have a left padding of 16px */
@@ -219,33 +248,7 @@ button:focus {
     padding-bottom: 32px;
 }
 
-/* Configuring the grid containers and components to be used in #information .left and #thesis-exhibit .left  */
-.side-tiles {
-    display: grid;
-    grid-template-columns: 35fr 65fr;
-    /* Used "grid-auto-flow: row" implicit grid property, to specify how additional items get flowed into the grid. */
-    grid-auto-flow: row;
-    column-gap: 16px;
-    padding-top: 16px;
-    padding-left: 16px;
-    padding-bottom: 16px;
-    align-items: center;
-    border-bottom: #d8d8d8 1px solid;
-}
-
-.side-tiles:hover {
-    background-color: #d8d8d8;
-}
-
-.tile-title {
-    font-weight: bold;
-    font-size: 24px;
-}
-
-.details p {
-    padding-top: 8px;
-    padding-bottom: 8px;
-}
+/* MAIN - LEARNING SECTION */
 
 /* Configuring the container to list the courses, with 3 columns of equal width created */
 .course-container {
@@ -254,7 +257,7 @@ button:focus {
     grid-gap: 32px;
 }
 
-/* Setting the background of which course to white. Not visible in the course image as the image is set to fit */
+/* Setting the background to white. Not visible in the course image as the image is set to fit */
 .course-card {
     background-color: #fff;
     border-bottom-left-radius: 8px;
@@ -287,6 +290,8 @@ button:focus {
     color: #464646;
     transform: scale(1.05);
 }
+
+/* MAIN - THESIS-EXHIBIT */
 
 /* Setting the thesis-exhibit grid container, and Using grid-template-areas property to name sections to use as values in the grid-row-start, grid-row-end, grid-column-start,grid-column-end, and grid-area properties. */
 #thesis-exhibit {
@@ -321,7 +326,7 @@ button:focus {
     padding-top: 8px;
 }
 
-/* Video in thesis exhibit to autofit */
+/* Set video in thesis exhibit section */
 #thesis-exhibit video {
     width: 100%;
     padding: 0;
@@ -338,16 +343,20 @@ footer {
     padding-top: 16px;
 }
 
+/* ELEMENTS TO BE HIDDEN IN VIEWPORTS WIDER THAN 640PX */
+
 /*  Hide mobile-navi-menu and images for mobile in desktop view */
 .mobile-nav-menu,
 .img-mobile {
     display: none;
 }
 
-/* CSS rules for header section - viewports of max 640px width */
+/* CSS RULES FOR VIEWPORTS UP TO MAX WIDTH 640PX */
+
+/* Specified breakpoint of 640px for responsive design */
 @media screen and (max-width: 640px) {
 
-    /* CSS rule to hide specific items */
+    /* CSS rule to hide specific items not applicable in mobile view */
     .nav-menu,
     .colmar-text,
     .academy-text,
@@ -360,69 +369,6 @@ footer {
     .course-card img,
     .course-card p {
         display: none;
-    }
-
-    .img-mobile {
-        width: 100%;
-        display: unset;
-    }
-
-    /* Mobile menu - logo + 3 icons */
-    nav {
-        display: flex;
-        margin: auto;
-        /* Auto flush out margins */
-        width: 100%;
-        height: 64px;
-    }
-
-    .mobile-nav-menu {
-        display: flex;
-        width: 100%;
-        justify-content: space-around;
-        align-items: center;
-        list-style: none;
-        margin: auto;
-    }
-
-    /* Setting sizes of headers */
-    .right h1 {
-        font-size: xx-large;
-        padding-top: 32px;
-        padding-bottom: 32px;
-    }
-
-    .right h2 {
-        font-size: x-large;
-        padding: 0;
-    }
-
-    .right h3 {
-        font-size: larger;
-        padding-bottom: 24px;
-        padding-top: 0px;
-    }
-
-    .course-card h4 {
-        font-size: large;
-        padding: 0;
-    }
-
-    /* Tweaking button and centered it */
-
-    button {
-        padding-left: 16px;
-        padding-right: 16px;
-        padding-top: 2%;
-        padding-bottom: 2%;
-        width: 100%;
-        height: 50%;
-        font-size: 1.2em;
-        background-color: #9b9b9b;
-    }
-
-    .button-container {
-        text-align: center;
     }
 
     /* Switching banner and information grid sets to be split into 1 column  */
@@ -444,12 +390,78 @@ footer {
         padding-top: 0;
     }
 
+    /* Set padding left and right of the <div> with "right" class used in various containers */
     .right {
         padding-left: 16px;
         padding-right: 16px;
     }
 
-    .side-tiles {
+    /* Setting sizes of headers */
+    .right h1 {
+        font-size: xx-large;
+        padding-top: 32px;
+        padding-bottom: 32px;
+    }
+
+    .right h2 {
+        font-size: x-large;
+        padding: 0;
+    }
+
+    .right h3 {
+        font-size: larger;
+        padding-bottom: 24px;
+        padding-top: 0px;
+    }
+
+    /* HEADER */
+
+    /* Mobile menu - logo + 3 icons */
+    nav {
+        display: flex;
+        margin: auto;
+        /* Auto flush out margins */
+        width: 100%;
+        height: 64px;
+    }
+
+    .mobile-nav-menu {
+        display: flex;
+        width: 100%;
+        justify-content: space-around;
+        align-items: center;
+        list-style: none;
+        margin: auto;
+    }
+
+    /*  MAIN - BANNER SECTION */
+
+    /* Set button's styles and properties */
+    button {
+        padding-left: 16px;
+        padding-right: 16px;
+        padding-top: 2%;
+        padding-bottom: 2%;
+        width: 100%;
+        height: 50%;
+        font-size: 1.2em;
+        background-color: #9b9b9b;
+    }
+
+    /* Center the button */
+    .button-container {
+        text-align: center;
+    }
+
+    /* MAIN - INFORMATION SECTION */
+
+    /* Show the images for mobile version */
+    .img-mobile {
+        width: 100%;
+        display: unset;
+    }
+
+    #information .side-tiles {
         display: grid;
         grid-template-columns: 1fr;
         grid-auto-flow: row;
@@ -460,21 +472,13 @@ footer {
         padding-bottom: 32px;
     }
 
-    .side-tiles:nth-child(n+2):nth-child(-n+3) {
+    /* Set padding top of 32px to the 2-3 child within the side-tiles div in information section */
+    #information .side-tiles:nth-child(n+2):nth-child(-n+3) {
         padding-top: 32px;
     }
 
-    .course-card {
-        border-radius: 0;
-        padding-top: 16px;
-        padding-bottom: 24px;
-        background-color: #d8d8d8;
-    }
-
-    .course-container {
-        row-gap: 8px;
-    }
-
+    /* MAIN - LEARNING SECTION */
+    /* Set styling of learning section */
     #learning {
         padding-left: 16px;
         padding-right: 16px;
@@ -486,10 +490,26 @@ footer {
         padding-bottom: 16px;
     }
 
-    /* #thesis-exhibit {
-        display: grid;
-        grid-template-rows: 1fr;
-    } */
+    /* Set the row gap to appear between grids */
+    .course-container {
+        row-gap: 8px;
+    }
+
+    .course-card {
+        border-radius: 0;
+        padding-top: 16px;
+        padding-bottom: 24px;
+        background-color: #d8d8d8;
+    }
+
+    .course-card h4 {
+        font-size: large;
+        padding: 0;
+    }
+
+    /* MAIN - THESIS-EXHIBIT */
+
+    /* Define the structure and properties of the grid container used in thesis exhibit */
     #thesis-exhibit {
         margin: auto;
         display: grid;
@@ -500,21 +520,17 @@ footer {
         padding-bottom: 24px;
     }
 
-    /* Unsetting the hidden grid area */
+    /* Define area as grid area "header" to be used in the grid */
     #thesis-exhibit h2 {
         grid-area: header;
     }
 
-    /* Defining .left container as grid area "left" to be used in grid-template-areas */
+    /* Define area as grid area "left" to be used in grid */
     #thesis-exhibit .left {
         grid-area: left;
     }
 
-    /* Unsetting the hidden grid area */
-    #thesis-exhibit .right {
-        grid-area: unset;
-    }
-
+    /* MOBILE - FOOTER */
     footer {
         display: flex;
         background-color: #fff;
